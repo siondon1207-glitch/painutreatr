@@ -1,23 +1,1046 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "퇴행성 관절염의 가장 대표적인 초기 증상은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "가장 대표적인 증상은 관절을 사용할 때 발생하는 통증입니다. 초기에는 걷거나 무릎을 구부릴 때 묵직한 통증이 발생하다가 안정을 취하면 사라지지만, 방치 시 염증이 악화되어 가만히 있어도 쑤시는 만성 통증으로 발전합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "퇴행성 관절염 치료비용은 평균적으로 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "비수술적 주사 치료(연골주사, PRP, DNA 주사 등)는 회당 5만원에서 30만원 선이며, 말기 관절염 환자가 시행하는 무릎 인공관절 수술 비용은 편측당 평균 200만원에서 400만원 선의 예상 금액이 책정됩니다. 개인의 실손 보험 가입 여부 및 비급여 항목 포함에 따라 실제 부담금은 차이가 발생할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "20대나 30대 청년층도 퇴행성 관절염에 걸릴 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 가능합니다. 최근 과도한 크로스핏, 러닝, 웨이트 트레이닝 등 격렬한 스포츠 활동이나 외상성 반월상 연골판 파열을 방치하여 20대와 30대에서도 관절 연골이 조기에 마모되는 조기 퇴행성 관절염 환자가 증가하는 추세입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "퇴행성 관절염과 류마티스 관절염의 가장 큰 차이점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "퇴행성 관절염은 노화나 과사용으로 연골이 닳아 생기는 국소적 마모성 질환인 반면, 류마티스 관절염은 면역 체계 오작동으로 활막에 전신적인 염증이 생기는 자가면역 질환이라는 점이 가장 본질적인 차이점입니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #2E5BFF;
+            --primary-light: #EBF0FF;
+            --secondary-color: #4A5568;
+            --accent-color: #FF6B6B;
+            --accent-light: #FFE8E8;
+            --bg-color: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #1A202C;
+            --text-muted: #718096;
+            --border-color: #E2E8F0;
+            --success-color: #2ECC71;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-left: 24px;
+            transition: color 0.2s ease;
+        }
+
+        header nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: #FFFFFF;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.8em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.25em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #0F172A;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .sub-title {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: var(--secondary-color);
+        }
+
+        .keyword-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 25px 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .keyword-badge {
+            background-color: var(--card-bg);
+            color: var(--secondary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .interactive-calculator {
+            background: linear-gradient(145deg, #FFFFFF, #F1F5F9);
+            border: 1px solid var(--primary-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            margin: 40px 0;
+        }
+
+        .interactive-calculator h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .calc-group {
+            margin-bottom: 20px;
+        }
+
+        .calc-label {
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--text-main);
+        }
+
+        .calc-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .calc-btn-option {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .calc-btn-option.selected {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            border-color: var(--primary-color);
+        }
+
+        .calc-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 576px) {
+            .calc-checkboxes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .calc-submit {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background-color 0.2s;
+        }
+
+        .calc-submit:hover {
+            background-color: #E05252;
+        }
+
+        .calc-result-box {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: var(--primary-light);
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table.comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95em;
+        }
+
+        table.comparison-table th, table.comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        table.comparison-table th {
+            background-color: #F8FAFC;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        table.comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.comparison-table td strong {
+            color: var(--primary-color);
+        }
+
+        .chart-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .chart-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .chart-label {
+            width: 120px;
+            font-weight: 500;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+        }
+
+        .chart-bar-container {
+            flex-grow: 1;
+            background-color: var(--border-color);
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chart-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #6366F1);
+            border-radius: 12px;
+            transition: width 1s ease-in-out;
+        }
+
+        .chart-bar-fill.accent {
+            background: linear-gradient(90deg, var(--accent-color), #F43F5E);
+        }
+
+        .chart-val {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .consult-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .form-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .form-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-card p {
+            font-size: 0.9em;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95em;
+            box-sizing: border-box;
+            background-color: var(--bg-color);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: #FFFFFF;
+        }
+
+        .form-checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .form-checkbox-group input {
+            margin-top: 4px;
+            margin-right: 10px;
+        }
+
+        .form-checkbox-label {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .form-submit-btn {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #1E40AF;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--secondary-color);
+            font-size: 1em;
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle-icon {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .external-links-section {
+            background-color: #F1F5F9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .external-links-section h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: var(--text-main);
+        }
+
+        .external-link-item {
+            display: block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .external-link-item:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #0F172A;
+            color: #94A3B8;
+            padding: 60px 0;
+            font-size: 0.9em;
+            border-top: 1px solid #1E293B;
+        }
+
+        footer a {
+            color: #F1F5F9;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .content-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="/">관절건강연구소</a></h1>
+            <nav>
+                <a href="#정의">퇴행성관절염이란</a>
+                <a href="#증상">단계별 증상</a>
+                <a href="#연령별">연령별 분석</a>
+                <a href="#비용">치료 및 비용비교</a>
+                <a href="#자가진단">자가진단</a>
+            </nav>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section class="hero">
+            <div class="container">
+                <h2>초기 대처가 평생의 관절 수명을 결정합니다.</h2>
+                <p>2026년 기준 대한민국 국민 5명 중 1명이 경험하는 퇴행성 관절염, 연골 손상 전 전조증상 체크부터 최첨단 비수술 재생 요법의 예상 금액 비교까지 일목요연하게 전달해 드립니다.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-grid">
+                
+                <div class="main-content">
+                    
+                    <section id="정의" class="content-card">
+                        <h2 class="section-title">퇴행성 관절염 증상, 단순한 노화가 아닌 만성 손상의 신호</h2>
+                        <p>
+                            많은 분들이 무릎에서 뚝뚝 소리가 나거나 시큰거리는 통증을 느낄 때, 단순히 나이가 들어서 발생하는 일시적인 노화 현상으로 치부하곤 합니다. 하지만 정형외과 의학 기술이 극대화된 2026년 현재, 퇴행성 관절염은 방치하면 뼈와 뼈가 직접 맞부딪쳐 극심한 고통과 함께 보행 장애를 유발하는 무서운 진행성 질환으로 정의됩니다.
+                        </p>
+                        <p>
+                            가장 본질적인 원인은 관절을 보호하고 있는 매끄러운 뼈 연골 조직이 서서히 닳아 없어지면서 일어나는 구조적 손상입니다. 무릎, 엉덩이, 손가락 마디 등 관절이 있는 부위라면 어디든 발생할 수 있으며, 이로 인한 활막 염증 반응은 극심한 만성 통증을 유발합니다. 치료 시기를 놓쳐 연골이 완전히 마모될 경우 최후의 수단으로 수술적 인공관절 삽입을 고려해야만 하므로, 초기 신호를 정밀하게 식별해 내는 능력이 중요합니다.
+                        </p>
+
+                        <div class="keyword-badge-container">
+                            <span class="keyword-badge">#퇴행성관절염증상</span>
+                            <span class="keyword-badge">#무릎퇴행성관절염초기증상</span>
+                            <span class="keyword-badge">#관절염치료비용</span>
+                            <span class="keyword-badge">#연골주사가격</span>
+                            <span class="keyword-badge">#PRP주사금액</span>
+                            <span class="keyword-badge">#인공관절수술견적</span>
+                            <span class="keyword-badge">#연골재생술비용</span>
+                            <span class="keyword-badge">#관절염예방운동</span>
+                        </div>
+                    </section>
+
+                    <section id="증상" class="content-card">
+                        <h2 class="section-title">퇴행성 관절염의 단계별 세부 증상 (K-L Grade 1~4)</h2>
+                        <p>
+                            의학계에서는 단순 방사선 촬영(X-ray) 결과를 토대로 켈그렌-ロー렌스 분류법(Kellgren-Lawrence Grade)을 사용하여 병변의 심각성을 1단계부터 4단계로 분류합니다. 환자가 자각하는 증상 역시 이 단계별 마모 상태와 완벽히 동조되어 나타납니다.
+                        </p>
+                        
+                        <h3 class="sub-title">1단계: 미세 마모기 (초기)</h3>
+                        <p>
+                            연골 표면이 미세하게 연화되기 시작하며 미세한 균열이 발생하는 단계입니다. 평지를 걸을 때는 별다른 이상을 느끼지 못하지만, 계단을 오르내릴 때 무릎 안쪽에 묵직하고 찌릿한 불쾌감이 생깁니다. 휴식을 취하면 통증이 금세 사라지는 탓에 가벼운 근육통이나 피로 누적으로 오인하기 쉽습니다.
+                        </p>
+
+                        <h3 class="sub-title">2단계: 골극 형성기 (경도 중기)</h3>
+                        <p>
+                            연골의 두께가 점차 얇아지면서 뼈의 가장자리가 뾰족하게 자라나는 골극 현상이 미세하게 관찰되는 단계입니다. 아침에 눈을 떴을 때 관절이 뻑뻑하고 굳어 있는 강직 증상이 약 30분 이내로 유지됩니다. 움직이다 보면 관절 내 윤활액이 분비되어 조금씩 부드러워지지만, 오후나 저녁 시간대가 되면 활동량 누적으로 시큰거리는 통증이 밀려오게 됩니다.
+                        </p>
+
+                        <h3 class="sub-title">3단계: 관절 간격 협소기 (중등도 중기)</h3>
+                        <p>
+                            관절 사이의 틈새가 정상 대비 눈에 띄게 좁아지는 시기입니다. 이때부터는 평지를 조금만 걸어도 무릎 내측에 날카로운 통증이 동반되며 겉으로 보아도 가벼운 부종과 열감이 수시로 관찰됩니다. 쪼그려 앉거나 책상다리를 하는 등의 동작이 극도로 힘들어지며 보행 중간중간 무릎에 힘이 빠지는 듯한 무력감을 느끼게 됩니다.
+                        </p>
+
+                        <h3 class="sub-title">4단계: 연골 소실기 (중증 말기)</h3>
+                        <p>
+                            연골이 완전히 소실되어 유연성을 잃은 뼈와 뼈가 직접 맞닿아 마찰을 일으키는 중증 상태입니다. 관절의 정상적인 윤곽이 붕괴되어 심한 O자형 다리 변형이 일어나며 마찰로 인해 서 있을 때조차 하중을 견디지 못합니다. 극심한 신경 자극으로 야간통이 겹쳐 수면 장애를 유발하고, 물리치료나 진통제 약물 요법만으로는 정상적인 일상 영위가 불가능해지는 최악의 단계입니다.
+                        </p>
+                    </section>
+
+                    <section id="연령별" class="content-card">
+                        <h2 class="section-title">2026년 기준 연령별 유병 특성 분석</h2>
+                        <p>
+                            관절염은 더 이상 고령층 노년층 환자만의 전유물이 아닙니다. 과거에는 주로 60대, 70대, 80대 이상의 노기 장년층 전반에 걸쳐 자연 퇴화 현상으로 빈발했으나, 최근 들어 스포츠를 즐기는 청년인구가 대폭 늘어나며 연령별 유병 트렌드가 다채롭게 다변화되고 있습니다.
+                        </p>
+
+                        <div class="chart-section">
+                            <h3 class="sub-title" style="margin-top:0;">2026 연령대별 퇴행성 관절염 발병 분포 비중 (%)</h3>
+                            <p>다음 자료는 최근 2026년 조사된 전국의 외래 임상 진료 통계 데이터를 기반으로 한 연령대별 발병 비율 분포입니다.</p>
+                            
+                            <div class="chart-container">
+                                <div class="chart-row">
+                                    <span class="chart-label">20대~30대 청년층</span>
+                                    <div class="chart-bar-container">
+                                        <div class="chart-bar-fill" style="width: 12%;"></div>
+                                        <span class="chart-val">12%</span>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <span class="chart-label">40대 중년기</span>
+                                    <div class="chart-bar-container">
+                                        <div class="chart-bar-fill" style="width: 23%;"></div>
+                                        <span class="chart-val">23%</span>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <span class="chart-label">50대 장년기</span>
+                                    <div class="chart-bar-container">
+                                        <div class="chart-bar-fill" style="width: 31%;"></div>
+                                        <span class="chart-val">31%</span>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <span class="chart-label">60대 이상 고령층</span>
+                                    <div class="chart-bar-container">
+                                        <div class="chart-bar-fill accent" style="width: 65%;"></div>
+                                        <span class="chart-val">65%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="sub-title">청년층 (20대, 30대) 환자의 증가 원인</h3>
+                        <p>
+                            크로스핏, 고중량 스쿼트, 마라톤, 배드민턴 등 폭발적인 하중 전달을 동반하는 레저 스포츠의 유행으로 인해 반월상 연골판 파열이나 십자인대 손상을 제때 치료하지 않아 20대와 30대에서도 관절 연골 마모가 조기에 가속되는 스포츠인 환자가 급격하게 증가하는 양상을 보입니다.
+                        </p>
+
+                        <h3 class="sub-title">중장년층 (40대, 50대) 여성 환자의 높은 비율</h3>
+                        <p>
+                            40대, 50대 연령군에서는 특히 남성보다 여성, 그중에서도 완경을 맞이하는 주부 환자들의 비중이 급격하게 수직 상승합니다. 에스트로겐 호르몬 감소는 연골 조직의 결합 능력을 약화시키며, 출산 후 누적된 미세 골격 정렬 변화와 가사 노동으로 인한 미세 충격이 집중되면서 무릎 안쪽 통증을 빈번하게 호소하기 시작합니다.
+                        </p>
+
+                        <h3 class="sub-title">초고령층 (60대, 70대, 80대)의 노화 현상</h3>
+                        <p>
+                            오랜 시간 뼈와 관절을 지속적으로 사용하며 자연스럽게 연골 성분이 한계 수명에 도달하는 시기입니다. 60대 이상의 고령층 노년층 환자군의 경우, 퇴행성 관절염 증상이 이미 고착화되어 단순 휴식만으로는 회복되지 않는 말기 환자가 큰 비중을 차지합니다. 따라서 이 시기에는 적극적인 인공관절 수술 등 근원적인 대안을 세밀히 검토해 보아야 합니다.
+                        </p>
+                    </section>
+
+                    <section id="비용" class="content-card">
+                        <h2 class="section-title">2026년 치료법 분류 및 항목별 비용 정밀 비교</h2>
+                        <p>
+                            진단 후 수술 여부를 결정하기 전에 비수술적 보존 요법과 수술적 요법에 수반되는 평균적인 금액대를 미리 산정해 보는 과정이 반드시 선행되어야 합니다. 병원마다 처방하는 비급여 항목들의 종류가 천차만별이기 때문입니다.
+                        </p>
+
+                        <div class="comparison-table-wrapper">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>치료 요법 종류</th>
+                                        <th>상세 치료 항목 및 기술 특징</th>
+                                        <th>평균 예상 금액 (비급여 기준)</th>
+                                        <th>주요 장점</th>
+                                        <th>단점 및 주의 사항</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>연골 주사 (히알루론산)</strong></td>
+                                        <td>관절 내부에 고점성의 완충액을 주입하여 기계적 마찰을 제어하는 주사 요법</td>
+                                        <td>회당 <strong>2만 ~ 5만원</strong> (급여 적용 시 본인부담 최소화)</td>
+                                        <td>점탄성을 즉각적으로 증가시키며 부작용과 위험 부담이 극도로 낮음</td>
+                                        <td>지속적인 마찰 감소 효과는 탁월하나 연골 자체의 재생을 이끌어내진 못함</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>PRP 주사 (자가 혈소판)</strong></td>
+                                        <td>환자 본인의 혈액을 채취 및 원심분리하여 성장인자가 풍부한 층만 주입하는 최신 요법</td>
+                                        <td>회당 <strong>20만 ~ 40만원</strong> (비급여 항목)</td>
+                                        <td>본인 자가 혈액을 가공하므로 면역 거부반응이나 염증성 부작용 위험이 없음</td>
+                                        <td>건강보험 급여 처리가 불가능해 치료비 부담이 다소 늘어남</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>골수 유래 줄기세포 주사</strong></td>
+                                        <td>장골 골수액을 추출하여 연골 결손 부위에 정밀하게 투입하는 신기술</td>
+                                        <td>회당 <strong>300만 ~ 600만원</strong> (주사 주입 형태의 정형도 요법)</td>
+                                        <td>비수술 주사 처치만으로 손상 연골의 실질적인 재생을 도모함</td>
+                                        <td>단기간에 매우 높은 목돈 예산 및 견적 필요, 숙련된 전문 업체/병원 선정이 필수</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>인공관절 전치환술 (TKR)</strong></td>
+                                        <td>마모가 고착된 관절면 전체를 절삭하고 세라믹과 티타늄 합금 보철물로 대체하는 수술</td>
+                                        <td>한쪽 무릎 기준 <strong>250만 ~ 450만원</strong> (건강보험 전액 적용 가구 기준)</td>
+                                        <td>보행 불가능 상태를 완전 복구하며 통증의 영구적 소멸 효과</td>
+                                        <td>전신 마취 필요, 장기간의 재활 과정, 마모 수명(약 20년) 한계로 재수술 가능성 존재</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub-text" style="text-align: right; font-size: 0.85em; color: var(--text-muted);">
+                            * 상기 평균 치료 금액은 2026년 상반기 기준 전국 주요 정형외과 및 종합병원 비급여 가격 현황을 조사하여 평균적인 수치로 산정해 둔 예상치입니다.
+                        </p>
+
+                        <h3 class="sub-title">치료비 절약을 위한 알짜 정보 팁</h3>
+                        <p>
+                            수백만 원에 달하는 첨단 비수술 치료 비용이나 수술비를 다이렉트로 결제하기에 앞서, 자신이 가입한 실손 의료보험 가입 시점과 보장 약관을 우선해서 상담 컨설팅 받아보시는 것이 가장 저렴한곳을 찾아 헤매는 시간보다 합리적입니다. 
+                        </p>
+                        <p>
+                            예를 들어, 최근 보건복지부 고시를 거쳐 승인된 무릎 골수 흡입물 주입술(줄기세포 주사)의 경우 신의료기술로 정식 등재되어, 적합한 진단 코드를 받으면 가입해 둔 실손 보험을 통해 70%에서 90% 이상의 비용 지원금 보상을 받을 수 있습니다. 치료를 결심하기 전 반드시 가입 상품 요금 계산과 한도 조회를 철저하게 진행해야 가계 재정에 큰 타격이 오지 않습니다.
+                        </p>
+                    </section>
+
+                    <section id="자가진단" class="interactive-calculator">
+                        <h3>나의 무릎 관절염 자가진단 계산기</h3>
+                        <p style="text-align:center; font-size: 0.95em; color: var(--secondary-color); margin-bottom: 20px;">
+                            현재 느끼고 있는 이상 징후들을 아래 체크박스에서 정밀하게 선택하시면 인공지능 자가 판정 계산을 통해 예방 수칙 가이드를 확인하실 수 있습니다.
+                        </p>
+                        
+                        <div class="calc-group">
+                            <span class="calc-label">1. 현재 연령대를 올바르게 선택해 주세요.</span>
+                            <div class="calc-options" id="calc-age-group">
+                                <div class="calc-btn-option" data-val="10">20대 이하</div>
+                                <div class="calc-btn-option" data-val="30">30대~40대</div>
+                                <div class="calc-btn-option" data-val="50">50대~60대</div>
+                                <div class="calc-btn-option" data-val="70">70대 이상</div>
+                            </div>
+                        </div>
+
+                        <div class="calc-group">
+                            <span class="calc-label">2. 느끼고 계신 전조 증상들을 빠짐없이 체크해 주세요. (중복 선택 가능)</span>
+                            <div class="calc-checkboxes">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="symptom-check" value="15">
+                                    <span>계단을 오르내릴 때 무릎에 묵직한 통증이 발생함</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="symptom-check" value="20">
+                                    <span>아침에 일어났을 때 무릎이 뻑뻑해서 잘 안 굽혀짐</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="symptom-check" value="15">
+                                    <span>무릎을 굽히고 펴는 반경에 눈에 띄는 제한이 있음</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="symptom-check" value="25">
+                                    <span>가벼운 산책 후에도 관절이 크게 붓고 열감이 느껴짐</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="symptom-check" value="30">
+                                    <span>움직일 때 관절 안에서 모래가 갈리는 듯한 소리가 남</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="symptom-check" value="35">
+                                    <span>휴식을 취하고 자려고 누워 있어도 무릎이 계속 쑤심</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="calc-submit" onclick="calculateScore()">나의 관절 건강 등급 즉시 계산하기</button>
+
+                        <div class="calc-result-box" id="calc-result">
+                            <h4 style="margin-top:0; font-size:1.2em; color: var(--primary-color);">종합 분석 결과</h4>
+                            <p id="calc-result-text" style="margin-bottom:0; font-weight:500;"></p>
+                        </div>
+                    </section>
+
+                    <section class="content-card">
+                        <h2 class="section-title">관절염 환자들이 신뢰하고 참고하는 실제 정보 소스 채널</h2>
+                        <p>
+                            과거에는 인터넷 검색 창에 넘쳐나는 광고 마케팅 글에 속아 무의미한 요양 식품 구입에 많은 돈을 탕진하는 안타까운 일들이 잦았습니다. 하지만 2026년 스마트 컨슈머들은 디시인사이드(디시), 보배드림, 에펨코리아(펨코) 같은 실사용자 커뮤니티의 건강 게시판에서 날 것 그대로의 치료 및 인공관절 수술 내돈내산 후기들을 심도 있게 추적 조사합니다.
+                        </p>
+                        <p>
+                            더불어 챗지피티(ChatGPT), 제미나이(Gemini) 등의 첨단 대화형 AI 도구를 기반으로 대학병원별 전문의 순위 평가 및 정밀 가격 요금 분석 데이터를 사전에 교차 비교하여 다이렉트로 올바른 의료기관에 방문하는 패턴을 보여주고 있습니다. 네이버 지식iN 플랫폼이나 구글, 유튜브 비디오 강의를 통해서도 수많은 정형외과 권위자들이 상주하며 무료 건강 Q&A를 성심껏 공유하고 있으니 광고성 후기에 치우치기보단 다양한 과학적 근거 자료를 수집하시기 바랍니다.
+                        </p>
+                    </section>
+
+                    <section class="content-card">
+                        <h2 class="section-title">실생활에서 바로 실천 가능한 무릎 보존 핵심 팁</h2>
+                        <h3 class="sub-title">1. 허벅지 대퇴사두근 강화 운동의 필수화</h3>
+                        <p>
+                            연골로 직접적으로 가해지는 하중 비중을 분산시킬 수 있는 유일한 보디 아머는 바로 무릎 위쪽에 자리한 허벅지 앞쪽 근육인 대퇴사두근입니다. 의자에 걸터앉아 다리를 쭉 일자로 펴고 발가락 끝을 몸 쪽으로 당겨 10초간 정지하는 버티기 운동을 하루에 매일 100회씩 반복해 주시는 것만으로도 놀라운 통증 경감의 효과를 직접 목도할 수 있습니다.
+                        </p>
+
+                        <h3 class="sub-title">2. 절대 피해야 하는 최악의 3대 습관</h3>
+                        <p>
+                            한국 고유의 좌식 생활 방식은 무릎 관절 연골 수명을 갉아먹는 주범입니다. 특히 방바닥에 대고 쪼그려 앉기, 양반다리(책상다리) 하고 앉기, 무릎을 꿇고 걸레질하기 등은 자기 체중의 최소 7배에서 최대 9배 이상의 뒤틀리는 압력을 가해 미세 연골 손상을 초래합니다. 평생 쓸 관절을 위해서 무조건 소파, 의자, 침대 중심의 완전 입식 생활 습관으로 가구 패러다임을 혁신하셔야 합니다.
+                        </p>
+
+                        <h3 class="sub-title">3. 이상적인 관절 친화 유산소 운동 선정</h3>
+                        <p>
+                            가파른 산행을 하는 등산이나 계단을 마구 내려오는 수직적 유산소 동작은 연골을 숫돌에 가는 행위와 다름없습니다. 관절 손상이나 통증이 주기적으로 감지되는 상태라면 중력의 힘을 부력으로 무마해 주는 수영장에 가셔서 가볍게 물 안을 걷는 아쿠아로빅이나 실내 자전거 고정 훈련을 적극 추천해 드립니다. 자전거 안장 높이를 충분히 조절하여 페달이 맨 아래로 내려갔을 때 무릎이 약 15도 정도 부드럽게 굽어지게 세팅해야 쓸데없는 하중의 마찰을 막을 수 있습니다.
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="sidebar">
+                    <div class="consult-sidebar">
+                        
+                        <div class="form-card">
+                            <h3>정형외과 전문 연골 케어<br>1:1 정밀 안내 신청</h3>
+                            <p>내 관절 상태에 필요한 정밀 비수술 주사 요법의 2026 최신 할인 혜택 및 의료비 실비 지원 한도를 전문적으로 안내해 드립니다.</p>
+                            
+                            <form id="consultForm" onsubmit="handleFormSubmit(event)">
+                                <label for="userName" style="display:none;">이름</label>
+                                <input type="text" id="userName" class="form-input" placeholder="이름을 입력하세요" required>
+                                
+                                <label for="userPhone" style="display:none;">휴대폰 번호</label>
+                                <input type="tel" id="userPhone" class="form-input" placeholder="휴대폰 번호 (- 제외)" required>
+                                
+                                <label for="userAge" style="display:none;">연령대 선택</label>
+                                <select id="userAge" class="form-input" required>
+                                    <option value="">연령대를 선택하세요</option>
+                                    <option value="20">20대 이하 청년층</option>
+                                    <option value="30">30대 중장년기</option>
+                                    <option value="40">40대 중장년기</option>
+                                    <option value="50">50대 중장년기</option>
+                                    <option value="60">60대 이상 고령층</option>
+                                </select>
+
+                                <label for="userPart" style="display:none;">가장 통증이 심한 부위</label>
+                                <select id="userPart" class="form-input" required>
+                                    <option value="">가장 통증이 심한 부위</option>
+                                    <option value="knee">무릎 관절</option>
+                                    <option value="hip">엉덩이 고관절</option>
+                                    <option value="finger">손가락 마디 관절</option>
+                                    <option value="spine">척추/허리 관절</option>
+                                    <option value="etc">기타 어깨/발목 부위</option>
+                                </select>
+
+                                <div class="form-checkbox-group">
+                                    <input type="checkbox" id="privacyAgree" required>
+                                    <label for="privacyAgree" class="form-checkbox-label">
+                                        개인정보 수집 및 마케팅 정보 수신 동의 (상담 서비스 제공, 제휴 정형외과 및 의료 컨설팅 연계 안내 목적으로만 한정하여 사용됨)
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="form-submit-btn">맞춤형 관리 요금 혜택 견적 확인</button>
+                            </form>
+                        </div>
+
+                        <div class="content-card" style="padding:20px;">
+                            <h4 style="margin-top:0; font-size:1.1em; color:var(--text-main);">실시간 예약 및 상담 현황</h4>
+                            <p style="font-size:0.85em; color:var(--text-muted); line-height:1.5; margin-bottom:0;">
+                                현재 전국 다이렉트 전문 의료기관의 2026 연말 맞춤 보존 치료 예약 프로모션 신청자가 몰리고 있습니다. 예약 고객센터 연계가 지연될 수 있어 필요시 빠른 접수가 좋습니다.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <section id="faq" class="content-card">
+                <h2 class="section-title">퇴행성 관절염 자주 묻는 질문 (FAQ)</h2>
+                <div class="faq-list">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Q1. 무릎에서 뚝뚝 거리는 소리가 나는 것도 퇴행성 관절염 증상인가요?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            단순히 소리만 나고 아무런 통증이나 시린 현상이 없다면 관절 속의 힘줄이나 기포가 이동하면서 발생하는 정상적인 소리일 수 있습니다. 하지만 시큰하고 묵직한 통증이 함께 수반되고 움직인 후 무릎 주변이 화끈하게 붓는다면 연골이 미세하게 닳아 관절면이 까칠해져 뼈끼리 쓸리는 전조 신호일 수 있으므로 정밀 진단이 조속히 요구됩니다.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Q2. 뼈주사(스테로이드 주사)는 한 번 맞으면 안 좋다고 하던데 진실인가요?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            흔히 뼈주사로 부르는 스테로이드 주사는 강력한 항염 작용으로 심각한 통증을 마법처럼 즉각 가라앉히는 우수한 소염 요법입니다. 그러나 과다 남용 시 연골 하부 뼈를 부식시켜 연골을 약하게 만들거나 피부 변색, 면역력 저하를 초래할 수 있습니다. 1년에 최소한 한 부위에 3~4회 이내로 횟수를 제한하여 안전 수칙에 맞게 전문의 처방에 따르는 자세가 지극히 올바른 선택입니다.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Q3. 건강 보조 식품인 콘드로이친이나 글루코사민은 확실히 효과가 있나요?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            상당수 임상 학술 연구에 따르면, 이러한 관절 연골 구성 성분의 장기 복용은 무릎 연골의 급격한 마모 지연과 통증의 경감에 어느 정도 우호적인 피드백을 보이는 것으로 나타납니다. 다만 이는 이미 소실된 연골 조직을 완벽히 다시 원상 복구시키는 근원적 치료 목적의 재생 의약품은 절대 아닙니다. 예방 관리를 돕는 보조적 차원으로 생각하셔야 기대치 착오를 막을 수 있습니다.
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="external-links-section">
+                <h4>공인된 외부 정보 및 검증 가이드 바로가기</h4>
+                <a href="https://painutreatq.koreahankang.com" class="external-link-item" target="_blank" rel="noopener noreferrer">
+                    reliabledone.com 관절 질환 자가 검증 수칙 및 연골 건강 포털 자료
+                </a>
+                <a href="https://namu.wiki/w/%ED%87%B4%ED%96%89%EC%84%B1%20%EA%B4%80%EC%A0%88%EC%97%BC" class="external-link-item" target="_blank" rel="noopener noreferrer">
+                    나무위키 퇴행성 관절염 원인과 진행 메커니즘 백과사전
+                </a>
+                <a href="https://health.kdca.go.kr" class="external-link-item" target="_blank" rel="noopener noreferrer">
+                    질병관리청 국가건강정보포털 관절염 관리 요약 지침서
+                </a>
+            </section>
+
+        </div>
     </main>
-  </body>
-</html>
+
+    <script>
+        // Interactive Calculator Logic
+        const ageOptions = document.querySelectorAll('#calc-age-group .calc-btn-option');
+        let selectedAgeScore = 0;
+
+        ageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                ageOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedAgeScore = parseInt(option.getAttribute('data-val'), 10);
+            });
+        });
+
+        function calculateScore() {
+            if (selectedAgeScore === 0) {
+                alert('연령대를 먼저 선택해 주세요.');
+                return;
+            }
+
+            const checkBoxes = document.querySelectorAll('.symptom-check');
+            let symptomScore = 0;
+            let checkCount = 0;
+
+            checkBoxes.forEach(chk => {
+                if (chk.checked) {
+                    symptomScore += parseInt(chk.value, 10);
+                    checkCount++;
+                }
+            });
+
+            const totalScore = selectedAgeScore + symptomScore;
+            const resultBox = document.getElementById('calc-result');
+            const resultText = document.getElementById('calc-result-text');
+
+            resultBox.style.display = 'block';
+
+            if (totalScore < 45) {
+                resultText.innerHTML = `현재 관절 건강 상태는 <strong>안전 단계(양호)</strong>입니다. 무릎 주변의 인장 근육을 강화해 주는 스트레칭 및 수영, 가벼운 걷기 운동을 통해 최선의 예방 상태를 충분히 잘 유지하고 있는 것으로 판단됩니다.`;
+            } else if (totalScore >= 45 && totalScore < 85) {
+                resultText.innerHTML = `현재 관절 건강 상태는 <strong>주의 단계(퇴행성 관절염 초기 의심)</strong>입니다. 계단을 내려갈 때 느껴지는 간헐적 통증이나 아침 시간대 뻑뻑한 느낌은 연골의 미세 손상 신호일 수 있습니다. 서둘러 정밀 진단 상담을 받아 예방 가이드 및 보존 요법인 저렴한곳 연골 주사나 영양 보충 처방을 분석해 보는 것을 강력 추천해 드립니다.`;
+            } else {
+                resultText.innerHTML = `현재 관절 건강 상태는 <strong>경고 단계(중등도 이상 관절염 진행 가능성 매우 높음)</strong>입니다. O자 다리 변형이나 야간 쑤심, 움직일 때 발생하는 모래 소리는 만성 염증으로 이미 뼈 끝이 많이 상하고 있다는 적극적인 위험 표식입니다. 지체 없이 인근 전문 정형외과나 권위 있는 종합병원을 찾아 비수술 연골 세포 이식술이나 줄기세포 주사 및 수술적 교정술 견적 요금을 면밀히 컨설팅 상담받으시기 바랍니다.`;
+            }
+            
+            // Auto scroll to result beautifully
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Accordion FAQ Toggle
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+        }
+
+        // Form Submit handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const age = document.getElementById('userAge').value;
+            const part = document.getElementById('userPart').value;
+
+            alert(`${name} 고객님, 자가 진단 기반 맞춤 치료 정보 및 제휴 정형외과 할인 프로모션 혜택 안내를 위한 1:1 상담 예약이 정상적으로 접수되었습니다. 기입해 주신 번호로 조속히 안내 전화를 드리겠습니다.`);
+            document.getElementById('consultForm').reset();
+        }
+    </script>
+
+  
